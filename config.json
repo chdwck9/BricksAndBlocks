@@ -1,0 +1,101 @@
+{
+	"TemplateDirectory":[
+		"C:|Users|chdwck9|Assets|My Templates",
+		"|Users|chdwck9@ridykes|Assets|My Templates"
+		],
+	"Blocks":[
+		{"Title":"Default",
+			"Structure":[	
+				"Temp", "Resources", "Final", "Media"
+			],
+			"Bricks":[
+				{"name":"Project","to":"."},
+				{"name":"Portfolio","to":"Final"},
+				{"name":"Content","to":"Media"}
+			]
+		},
+		{"Title":"Design",
+			"Structure":[
+				"Design","Final|Design",
+				"Media|Slides", "Media|Images|raw", "Media|Illustrations", "Media|Videos|raw", "Media|Audio|raw","Final|Media"
+			],
+			"Bricks":[
+				{"name":"Design File","to":"Design"},
+				{"name":"UX File","to":"Resources"},
+				{"name":"Panoramic","to":"Resources"}
+			]
+		},
+		{"Title":"Prototype",
+			"Structure":[
+				"Prototype","Final|Prototype"
+			],
+			"Bricks":[
+				{"name":"UX File","to":"Resources"},
+				{"name":"Panoramic","to":"Resources"}
+			]
+		},
+		{"Title":"Digital App",
+			"Structure":[
+				"App|data", "App|test","App|res","App|src","Final|App"
+			],
+			"Bricks":[
+				{"name":"UX File","to":"Resources"},
+				{"name":"Panoramic","to":"Resources"}
+			]
+		},
+		{"Title":"Story",
+			"Structure":[
+				"Drafts","Final|Story"
+			],
+			"Bricks":[
+				{"name":"Writer's Notes","to":"Drafts"}
+			]
+		},
+		{"Title":"Workshop",
+			"Structure":[
+				"Sessions|YYYYMM Session","Media|Videos|raw","Final|Workshop"
+			],
+			"Bricks":[
+				{"name":"Workshop Accelerator","to":"Sessions|YYYYMM Session"}
+			]
+		},
+		{"Title":"Course",
+			"Structure":[
+				"Media|Slides","Media|Videos|raw","Media|Images|raw","Media|Audio|raw","Final|Course"
+			]
+		},
+		{"Title":"Opportunity",
+			"Structure":[
+				"Opportunity|Support","Final|Opportunity"
+			],
+			"Bricks":[
+				{"name":"Opportunity File","to":"Opportunity"},
+				{"name":"Proposal","to":"Opportunity"},
+				{"name":"Pitch","to":"Opportunity"}
+			]
+		},
+		{"Title":"3D App",
+			"Structure":[
+				"App_temp|Assets|Scenes", "App_temp|Assets|Materials","App_temp|Assets|Scripts","App_temp|Assets|Tests","App_temp|Assets|Models","App_temp|Assets|Sounds","Final|Builds"
+			]
+		},
+		{"Title":"Media",
+			"Structure":[
+				"Media|Images|raw", "Media|Illustrations|raw", "Media|Videos|raw", "Media|Audio|raw","Final|Media"
+			]
+		},
+		{"Title":"Learning",
+			"Structure":[
+				"Notes|Lessons","Notes|Evaluation","Notes|Past Papers"
+			]
+		},
+		{"Title":"Trip",
+			"Structure":[
+				"Trip"
+			],
+			"Bricks":[
+				{"name":"Itenary","to":"Trip"}
+			]
+		}
+	]
+}

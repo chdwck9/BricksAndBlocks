@@ -1,0 +1,7 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\Directory\shell\bricksAndBlocks]
+@="Add New Block"
+
+[HKEY_CLASSES_ROOT\Directory\shell\bricksAndBlocks\command]
+@="\"C:\\Users\\chdwc\\Anaconda3\\python.exe\" \"C:\\Bricks and Blocks\buildBB.py\" \"%1\""

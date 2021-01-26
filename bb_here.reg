@@ -1,0 +1,12 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\bricksAndBlocks]
+"SubCommands"="BB-Build;BB-Config;BB-Package"
+"Muiverb"="Windows Defender"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\BB-Build]
+@="Add a block here"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CommandStore\shell\BB-Build\command]
+@="\"C:\\Users\\chdwc\\Anaconda3\\python.exe\" \"C:\\Bricks and Blocks\\buildBB.py\" \"%V\""	
+

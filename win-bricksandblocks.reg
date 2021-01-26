@@ -1,0 +1,33 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\bricksAndBlocks]
+"SubCommands"=""
+"Muiverb"="Bricks and Blocks"
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\bricksAndBlocks\Shell\runBnB]
+@="Add a block here..."
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\bricksAndBlocks\Shell\runBnB\command]
+@="\"C:\\Users\\chdwc\\Anaconda3\\python.exe\" \"C:\\Users\\chdwck9\\Assets\\Bricks and Blocks\\bricksAndBlocks.py\" \"%V\""
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\bricksAndBlocks\Shell\configBnB]
+@="Config BnB"
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\bricksAndBlocks\Shell\configBnB\command]
+@="\"C:\\Users\\chdwck9\\Assets\\Bricks and Blocks\\config.json\""
+
+[HKEY_CLASSES_ROOT\Directory\shell\bricksAndBlocks]
+"SubCommands"=""
+"Muiverb"="Bricks and Blocks"
+
+[HKEY_CLASSES_ROOT\Directory\shell\bricksAndBlocks\Shell\runBnB]
+@="Add a block at target..."
+
+[HKEY_CLASSES_ROOT\Directory\shell\bricksAndBlocks\Shell\runBnB\command]
+@="\"C:\\Users\\chdwc\\Anaconda3\\python.exe\" \"C:\\Users\\chdwck9\\Assets\\Bricks and Blocks\\bricksAndBlocks.py\" \"%1\""
+
+[HKEY_CLASSES_ROOT\Directory\shell\bricksAndBlocks\Shell\configBnB]
+@="Config BnB"
+
+[HKEY_CLASSES_ROOT\Directory\shell\bricksAndBlocks\Shell\configBnB\command]
+@="\"C:\\Users\\chdwck9\\Assets\\Bricks and Blocks\\config.json\""
