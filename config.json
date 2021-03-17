@@ -1,7 +1,7 @@
 {
 	"TemplateDirectory":[
-		"C:|Users|chdwck9|Assets|My Templates",
-		"|Users|chdwck9@ridykes|Assets|My Templates"
+		"C:|Users|chdwck9|Ship|Assets|My Templates",
+		"|Users|chdwck9@ridykes|Ship|Assets|My Templates"
 		],
 	"Blocks":[
 		{"Title":"Default",
@@ -20,7 +20,7 @@
 				"Media|Slides", "Media|Images|raw", "Media|Illustrations", "Media|Videos|raw", "Media|Audio|raw","Final|Media"
 			],
 			"Bricks":[
-				{"name":"Design File","to":"Design"},
+				{"name":"Design File","to":"Resources"},
 				{"name":"UX File","to":"Resources"},
 				{"name":"Panoramic","to":"Resources"}
 			]
@@ -37,10 +37,38 @@
 		{"Title":"Digital App",
 			"Structure":[
 				"App|data", "App|test","App|res","App|src","Final|App"
+			]
+		},
+		{"Title":"Flutter app",
+			"Structure":[
+				"App", "Final|Flutter"
 			],
 			"Bricks":[
-				{"name":"UX File","to":"Resources"},
-				{"name":"Panoramic","to":"Resources"}
+				{"run":"flutter create [myapp]_flutter", "to":"App"}
+			]
+		},
+		{"Title":"React app",
+			"Structure":[
+				"App", "Final|React"
+			],
+			"Bricks":[
+				{"run":"npx create-react-app [myapp]_react", "to":"App"}
+			]
+		},
+		{"Title":"Angular app",
+			"Structure":[
+				"App", "Final|Angular"
+			],
+			"Bricks":[
+				{"run":"ng new [myapp]_angular", "to":"App"}
+			]
+		},
+		{"Title":"Firebase",
+			"Structure":[
+				"App"
+			],
+			"Bricks":[
+				{"run":"firebase init hosting", "to":"App"}
 			]
 		},
 		{"Title":"Story",
