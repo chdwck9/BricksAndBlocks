@@ -1,1 +1,0 @@
-cd 'C:\Users\chdwck9\Ship\Assets\My Scripts\Bricks and Blocks\test\App' && firebase init hosting
