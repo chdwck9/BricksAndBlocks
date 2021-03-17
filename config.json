@@ -21,8 +21,7 @@
 			],
 			"Bricks":[
 				{"name":"Design File","to":"Resources"},
-				{"name":"UX File","to":"Resources"},
-				{"name":"Panoramic","to":"Resources"}
+				{"name":"UX File","to":"Resources"}
 			]
 		},
 		{"Title":"Prototype",
@@ -30,45 +29,40 @@
 				"Prototype","Final|Prototype"
 			],
 			"Bricks":[
+				{"name":"Design File","to":"Resources"},
 				{"name":"UX File","to":"Resources"},
 				{"name":"Panoramic","to":"Resources"}
 			]
 		},
 		{"Title":"Digital App",
 			"Structure":[
-				"App|data", "App|test","App|res","App|src","Final|App"
+				"[App]|data", "[App]|test","[App]|res","Final|App"
+			],
+			"Bricks":[
+				{"run":"git init","to":"[App]"}
 			]
 		},
 		{"Title":"Flutter app",
-			"Structure":[
-				"App", "Final|Flutter"
-			],
 			"Bricks":[
-				{"run":"flutter create [myapp]_flutter", "to":"App"}
+				{"run":"flutter create [myapp]", "to":"."}
 			]
 		},
 		{"Title":"React app",
-			"Structure":[
-				"App", "Final|React"
-			],
 			"Bricks":[
-				{"run":"npx create-react-app [myapp]_react", "to":"App"}
+				{"run":"npx create-react-app [myapp]", "to":"."}
 			]
 		},
 		{"Title":"Angular app",
-			"Structure":[
-				"App", "Final|Angular"
-			],
 			"Bricks":[
-				{"run":"ng new [myapp]_angular", "to":"App"}
+				{"run":"ng new [myapp]", "to":"."}
 			]
 		},
 		{"Title":"Firebase",
 			"Structure":[
-				"App"
+				"[App]"
 			],
 			"Bricks":[
-				{"run":"firebase init hosting", "to":"App"}
+				{"run":"firebase init hosting", "to":"[App]"}
 			]
 		},
 		{"Title":"Story",

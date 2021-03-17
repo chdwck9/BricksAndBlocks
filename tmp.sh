@@ -1,0 +1,1 @@
+cd 'C:\Users\chdwck9\Ship\Sandbox\Static Web\staticweb' && firebase init hosting

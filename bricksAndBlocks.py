@@ -1,12 +1,3 @@
-#! /usr/local/bin/python3
-
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Nov 28 15:47:12 2019
-
-@author: chdwck9
-"""
-
 #Imports and setup
 import os
 import json
@@ -15,6 +6,7 @@ import glob
 import shutil
 import sys
 import re
+from pathlib import Path
 
 #Functions
 def getOSSep ():
@@ -24,17 +16,27 @@ def getOSSep ():
 		s="/"
 	return s
 
-def getBlockPath():
-	if os.path.isfile(".block") :
-		parentDir = dname
+def blockOrBrick(a=None) :
+	if a==None : a = [sys.argv[2],sys.argv[1]]
+	if a[0] =="block":
+		defaultBricks = [1]
+		parentDir, name = getBlockPath(a[1])
 	else :
-		if len(sys.argv)>1 or not os.path.isfile(sys.argv[1]):
-			parentDir=sys.argv[1]
-			parentDir=parentDir.replace('/','|').replace('\\','|').rstrip('|')
-		else : parentDir="C:|Users|chdwck9|Temp" #change this to dynamically take arguments (len(sys.argv) > 1)
-		name = str(input("What is the title of the project/directory?: "))
-		parentDir=parentDir+'|'+name+'|'
-		name = re.sub('[^a-zA-Z]+', '', re.sub('(\s)#\w+','',name))
+		defaultBricks = []
+		parentDir, name = getBrickPath(a[1])
+	return parentDir, name, defaultBricks
+
+def getBlockPath(pd):
+	name = str(input("What is the title of the block?: "))
+	parentDir=pd.replace('/','|').replace('\\','|').rstrip('|')+'|'+name+'|'
+	name = re.sub('[^a-zA-Z]+', '', re.sub('(\s)#\w+','',name)).lower()
+	return parentDir, name
+
+def getBrickPath(pd):
+	name = str(input("What is the title of the brick? (leave blank for default): "))
+	if name == "": name = os.path.basename(pd)
+	parentDir=pd.replace('/','|').replace('\\','|').rstrip('|')+'|'
+	name = re.sub('[^a-zA-Z]+', '', re.sub('(\s)#\w+','',name)).lower()
 	return parentDir, name
 
 def writeDir(d) :
@@ -66,12 +68,13 @@ def userSelected(c,cap,ind="Title",ti=[]):
 
 def walkBlocks(c,s,tp,p,n):
 	for i in c:
-		for j in i["Structure"]:
-			writeDir(re.sub(r'\[[\s\S]*\]',n,(p+j).replace("|",s)))
-			# print(re.sub(r'\[[\s\S]*\]',n,(p+j).replace("|",s)))
+		if "Structure" in i:
+			for j in i["Structure"]:
+				writeDir(re.sub(r'\[[\s\S]*\]',n,(p+j).replace("|",s)))
+				# print(re.sub(r'\[[\s\S]*\]',n,(p+j).replace("|",s)))
 		if "Bricks" in i: walkBricks(i["Bricks"],s,tp,p,n)
-	with open(((p+'.block').replace("|",s)), 'w') as outfile:
-		   json.dump(c, outfile)
+	# with open(((p+'.block').replace("|",s)), 'w') as outfile:
+	# 	   json.dump(c, outfile)
 
 def walkBricks(c,s,tp,p,n):
 	if len(c) > 0 :
@@ -79,16 +82,15 @@ def walkBricks(c,s,tp,p,n):
 			t = re.sub(r'\[[\s\S]*\]',n,(p+i["to"]).replace('|.','').replace('|',s))
 			if "run" in i:
 				r = re.sub(r'\[[\s\S]*\]',n,i["run"])
-				f = open("ex.sh", "w")
+				f = open("tmp.sh", "w")
 				f.write("cd '"+t+"' && "+r)
 				f.close()
-				os.popen('ex.sh')
-				os.remove('ex.sh')
+				os.popen('tmp.sh')
+				# os.remove('tmp.sh')
 			else :
 				f = (tp+i["name"]).replace('|',s)
 				print("from: "+f+"*    to: "+t)
 				copyBrick(f,t,n)
-
 
 #Change the working directory
 abspath = os.path.abspath(__file__)
@@ -97,10 +99,11 @@ os.chdir(dname)
 
 #Get some information about the destination directory
 srep = getOSSep()
-parentDir, name = getBlockPath()
-# parentDir = "C:|Users|chdwck9|Ship|Assets|My Scripts|Bricks and Blocks|test"
-# name = "test"
-# print(parentDir, name)
+parentDir, name, defaultBricks = blockOrBrick()
+# parentDir, name = block(["block",r"C:\Users\chdwck9\Temp\test"]) # dev
+# parentDir, name = block(["brick",r"C:\Users\chdwck9\Temp\test"]) # dev
+# print(parentDir, name) # dev
+
 
 # Load the config file
 try :
@@ -113,7 +116,7 @@ except :
 print()
 
 #create a menu to pick what you want in your folder (mulitple choices accepted)
-blocks = userSelected(conf["Blocks"],"What blocks do you want configured?",ti=[1])
+blocks = userSelected(conf["Blocks"],"What blocks do you want configured?",ti=defaultBricks)
 print()
 print()
 # bricks = userSelected(conf["Bricks"],"What bricks do you want configured?",ind="name")
