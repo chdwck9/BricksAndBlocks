@@ -9,6 +9,7 @@
 				"Temp", "Resources", "Final", "Media"
 			],
 			"Bricks":[
+				{"git":"https://github.com/chdwck9/BricksAndBlocks.git", "to":"Resources"},
 				{"name":"Project","to":"."},
 				{"name":"Portfolio","to":"Final"},
 				{"name":"Content","to":"Media"}
